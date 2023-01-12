@@ -44,6 +44,6 @@ class User extends Authenticatable
     ];
 
     public function storage() {
-        return $this->belongsTo(Storage::class);
+        return $this->hasOne(Storage::class,'user_id','id');
     }
 }

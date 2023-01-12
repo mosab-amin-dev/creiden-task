@@ -27,7 +27,13 @@ Route::prefix('user')->group(function () {
         Route::post('register', [UserController::class, 'register']);
         Route::post('logout', [UserController::class, 'logout'])->middleware(['auth:user']);
     });
-    Route::middleware(['auth:admin'])->group(function () {
+    Route::middleware(['auth:user'])->group(function () {
+        Route::get('items/{item_id}',[ItemController::class,'user_show']);
+        Route::get('items',[ItemController::class,'user_index']);
+        Route::post('items',[ItemController::class,'user_store']);
+        Route::put('items/{item_id}',[ItemController::class,'user_update']);
+        Route::delete('items/{item_id}',[ItemController::class,'user_destroy']);
+
     });
 });
 

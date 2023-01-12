@@ -13,7 +13,7 @@ class AdminCreateItemRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,9 @@ class AdminCreateItemRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'storage_id'=>'required|exists:storages,id',
+                'title'=>'required',
+                'content'=>'required'
         ];
     }
 }

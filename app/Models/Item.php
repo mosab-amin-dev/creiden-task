@@ -10,4 +10,8 @@ class Item extends Model
     use HasFactory;
 
     protected $guarded=['id'];
+
+    public function storage() {
+        return $this->belongsTo(Storage::class,'storage_id','id');
+    }
 }

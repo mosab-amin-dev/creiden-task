@@ -13,7 +13,7 @@ class UserUpdateItemRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,8 @@ class UserUpdateItemRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+                'title'=>'required',
+                'content'=>'required'
         ];
     }
 }

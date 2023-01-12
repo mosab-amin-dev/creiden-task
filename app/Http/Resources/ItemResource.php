@@ -14,6 +14,10 @@ class ItemResource extends JsonResource
      */
     public function toArray($request)
     {
-        return parent::toArray($request);
+        return [
+                'id'=>$this->id,
+                'storage_id'=>$this->storage_id,
+            'wp_id'=>$this->wp_id
+        ];
     }
 }

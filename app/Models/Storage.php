@@ -12,10 +12,10 @@ class Storage extends Model
     protected $guarded=['id'];
 
     public function user() {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class,'user_id','id');
     }
 
     public function items() {
-        return $this->hasMany(Item::class);
+        return $this->hasMany(Item::class,'storage_id','id');
     }
 }
